@@ -1,4 +1,4 @@
-From ubuntu:bionic
+From ubuntu:focal
 
 WORKDIR ~
 
@@ -18,23 +18,32 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get update
 
 
-# Install Wine from WineHQ Repository
+# # Install Wine from WineHQ Repository
+# RUN dpkg --add-architecture i386
+# # RUN wget -qO- https://dl.winehq.org/wine-builds/Release.key | apt-key add -
+# # RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv F987672F
+# # RUN apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
+# RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key
+# RUN mv winehq.key /usr/share/keyrings/winehq-archive.key
+
+# RUN wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources
+# RUN mv winehq-focal.sources /etc/apt/sources.list.d/
+
+# RUN apt-get update
+# RUN apt-get install -y --install-recommends winehq-stable
+
+# Installing Wine
 RUN dpkg --add-architecture i386
-# RUN wget -qO- https://dl.winehq.org/wine-builds/Release.key | apt-key add -
-# RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv F987672F
-# RUN apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
 RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key
 RUN mv winehq.key /usr/share/keyrings/winehq-archive.key
-
-RUN wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/bionic/winehq-bionic.sources
-RUN mv winehq-bionic.sources /etc/apt/sources.list.d/
-
+RUN wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources
+RUN mv winehq-focal.sources /etc/apt/sources.list.d/
 RUN apt-get update
-RUN apt-get install -y --install-recommends winehq-stable
+RUN apt-get install --install-recommends -y winehq-stable
 
 # Installing mono
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-RUN sh -c 'echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" > /etc/apt/sources.list.d/mono-official-stable.list'
+RUN sh -c 'echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" > /etc/apt/sources.list.d/mono-official-stable.list'
 RUN apt-get update
 RUN apt-get install -y mono-complete
 
