@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const serve = require('electron-serve');
+const { triggerAsyncId } = require('async_hooks');
 const loadURL = serve({directory: './src/build'});
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -21,6 +22,8 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 1024,
     height: 768,
+    setAutoHideMenuBar: true,
+    fullscreen: true,
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: true,
