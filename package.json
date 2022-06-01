@@ -1,5 +1,5 @@
 {
-  "name": "soka-electron",
+  "name": "sism",
   "productName": "SISM",
   "version": "1.0.0",
   "description": "SISM Kiosk",
@@ -20,11 +20,12 @@
   "license": "MIT",
   "config": {
     "forge": {
+      "packagerConfig": {},
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "soka-electron"
+            "name": "sism"
           }
         },
         {
