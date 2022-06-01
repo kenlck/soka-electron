@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fbox","\u002Fgraduates","\u002Fhistory","\u002F"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
