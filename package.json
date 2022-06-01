@@ -1,5 +1,5 @@
 {
-  "name": "sism",
+  "name": "soka-electron",
   "productName": "SISM",
   "version": "1.0.0",
   "description": "SISM Kiosk",
@@ -25,7 +25,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "sism"
+            "name": "soka-electron"
           }
         },
         {
