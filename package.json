@@ -1,6 +1,6 @@
 {
   "name": "soka-electron",
-  "productName": "SISM",
+  "productName": "soka-electron",
   "version": "1.0.0",
   "description": "SISM Kiosk",
   "main": "src/index.js",
